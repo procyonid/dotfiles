@@ -1,0 +1,9 @@
+alias ls="ls -FhN --color=auto --group-directories-first"
+alias grep="grep --color=auto"
+
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -vI"
+
+# need this 'cause raspis don't know what an 'alacritty' is
+alias ssh="TERM=xterm ssh"

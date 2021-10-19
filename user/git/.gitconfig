@@ -1,0 +1,8 @@
+[user]
+	name = Raccoon
+	email = procyonid@member.fsf.org
+
+[init]
+	defaultBranch = master
+[alias]
+	logv = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
