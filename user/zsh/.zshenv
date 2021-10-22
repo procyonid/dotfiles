@@ -7,6 +7,9 @@ export READER="zathura"
 export TERMINAL="alacritty"
 export GUIFM="dolphin"
 
+# use bat as colorizing pager for man
+export MANPAGE="sh -c 'col -bx | bat -l man -p'"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
