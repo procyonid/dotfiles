@@ -112,20 +112,20 @@ CURSOR_BLOCK='\e[1 q'
 
 setopt promptsubst
 function build-prompt {
-    local prompt
+    local exit_code=$?
+    local prompt=""
     local NEWLINE=$'\n'
     local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n')
     
     if [[ -n $DISPLAY ]]; then
         # non-tty prompt
-
-        prompt="%K{12}%F{0} %~ %F{12}"
+        [[ $exit_code -ne 0 ]] && prompt+="%K{0}%F{1} ${exit_code} "
+        prompt+="%K{12}%F{0} %~ %F{12}"
         [ -n "$branch" ] && prompt+="%K{11}%F{0}  ${branch} %F{11}"
         prompt+="%k%f${NEWLINE}%(!.#.$) "
     else
         # tty prompt
-
-        prompt="[%n@%M]"
+        prompt+="[%n@%M]"
         [ -n "$branch" ] && prompt+=" git: ${branch}"
         prompt+=" %~${NEWLINE}%(!.#.$) "
     fi
