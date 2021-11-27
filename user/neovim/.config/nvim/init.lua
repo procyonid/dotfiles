@@ -72,5 +72,15 @@ opt.smartcase = true
 opt.wrap = false
 
 opt.signcolumn = 'number'
-
 opt.colorcolumn = '80'
+
+cmd [[
+    function InlineCommand()
+        let l:cmd = input('Command: ')
+        let l:output = system(l:cmd)
+        let l:output = substitute(l:output, '[\r\n]*$', '', '')
+        execute 'normal i'.l:output
+    endfunction
+
+    nmap <Leader>ci :call InlineCommand()<CR>
+]]
