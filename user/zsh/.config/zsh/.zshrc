@@ -119,7 +119,7 @@ function build-prompt {
     
     if [[ -n $DISPLAY ]]; then
         # non-tty prompt
-        [[ $exit_code -ne 0 ]] && prompt+="%K{0}%F{1} ${exit_code} "
+        [[ $exit_code -ne 0 ]] && prompt+="%K{1}%F{0} ${exit_code} "
         prompt+="%K{12}%F{0} %~ %F{12}"
         [ -n "$branch" ] && prompt+="%K{11}%F{0}  ${branch} %F{11}"
         prompt+="%k%f${NEWLINE}%(!.#.$) "
