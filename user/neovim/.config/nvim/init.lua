@@ -82,5 +82,5 @@ cmd [[
         execute 'normal i'.l:output
     endfunction
 
-    nmap <Leader>ci :call InlineCommand()<CR>
+    nmap <Leader>ic :call InlineCommand()<CR>
 ]]
