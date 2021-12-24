@@ -6,12 +6,10 @@ end
 
 require('packer').startup(function(use)
 	use 'vimwiki/vimwiki'
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-	if packer_bootstrap then
-		require('packer').sync()
-	end
+    use {
+        'https://git.sr.ht/~detegr/nvim-bqn',
+        ft = {'bqn'}
+    }
 end)
 
 
@@ -40,7 +38,10 @@ opt.hidden = true
 
 opt.incsearch = true
 opt.inccommand = 'nosplit' -- Preview while replacing
-api.nvim_set_keymap('n', '<esc>', [[<cmd>noh<cr>]], { noremap = true, silent = true})
+
+cmd [[
+    nmap <silent> <Esc> :noh<CR>
+]]
 
 opt.splitright = true
 opt.splitbelow = true
@@ -83,4 +84,8 @@ cmd [[
     endfunction
 
     nmap <Leader>ic :call InlineCommand()<CR>
+]]
+
+cmd [[
+    au BufNewFile,BufRead *.bqn set filetype=bqn
 ]]
